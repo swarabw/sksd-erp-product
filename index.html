@@ -18,61 +18,83 @@
             overflow-x: hidden;
         }
 
-        /* Animated Neon Liquid Wave Background */
+        /* Animated Neon Liquid Wave Background - More Prominent */
         .liquid-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            z-index: 0;
             overflow: hidden;
+            background: #000;
         }
 
         .liquid-wave {
             position: absolute;
-            width: 200%;
-            height: 200%;
-            top: -50%;
-            left: -50%;
+            width: 150%;
+            height: 150%;
+            border-radius: 45%;
             background: radial-gradient(ellipse at center, 
-                rgba(138, 43, 226, 0.4) 0%,
-                rgba(75, 0, 130, 0.3) 25%,
-                rgba(0, 191, 255, 0.3) 50%,
-                rgba(0, 255, 255, 0.2) 75%,
-                transparent 100%);
-            animation: liquidMove 20s ease-in-out infinite;
-            filter: blur(80px);
+                rgba(138, 43, 226, 0.6) 0%,
+                rgba(75, 0, 130, 0.5) 20%,
+                rgba(0, 191, 255, 0.5) 40%,
+                rgba(0, 255, 255, 0.4) 60%,
+                transparent 80%);
+            animation: liquidMove 25s ease-in-out infinite;
+            filter: blur(100px);
+            opacity: 0.8;
+        }
+
+        .liquid-wave:nth-child(1) {
+            top: -30%;
+            left: -20%;
+            animation-delay: 0s;
         }
 
         .liquid-wave:nth-child(2) {
             background: radial-gradient(ellipse at center,
-                rgba(0, 255, 255, 0.3) 0%,
-                rgba(138, 43, 226, 0.3) 50%,
-                transparent 100%);
-            animation: liquidMove 15s ease-in-out infinite reverse;
-            animation-delay: -5s;
+                rgba(0, 255, 255, 0.5) 0%,
+                rgba(138, 43, 226, 0.5) 40%,
+                rgba(75, 0, 130, 0.4) 60%,
+                transparent 80%);
+            animation: liquidMove 20s ease-in-out infinite reverse;
+            animation-delay: -7s;
+            top: 20%;
+            right: -20%;
         }
 
         .liquid-wave:nth-child(3) {
             background: radial-gradient(ellipse at center,
-                rgba(75, 0, 130, 0.4) 0%,
-                rgba(0, 191, 255, 0.2) 50%,
-                transparent 100%);
-            animation: liquidMove 25s ease-in-out infinite;
-            animation-delay: -10s;
+                rgba(75, 0, 130, 0.6) 0%,
+                rgba(0, 191, 255, 0.4) 40%,
+                rgba(138, 43, 226, 0.3) 60%,
+                transparent 80%);
+            animation: liquidMove 30s ease-in-out infinite;
+            animation-delay: -15s;
+            bottom: -30%;
+            left: 10%;
         }
 
         @keyframes liquidMove {
             0%, 100% {
                 transform: translate(0, 0) rotate(0deg) scale(1);
             }
-            33% {
-                transform: translate(30%, -30%) rotate(120deg) scale(1.1);
+            25% {
+                transform: translate(15%, -15%) rotate(90deg) scale(1.15);
             }
-            66% {
-                transform: translate(-20%, 20%) rotate(240deg) scale(0.9);
+            50% {
+                transform: translate(30%, 10%) rotate(180deg) scale(0.95);
             }
+            75% {
+                transform: translate(-10%, 20%) rotate(270deg) scale(1.1);
+            }
+        }
+
+        /* Content Layer */
+        .content-layer {
+            position: relative;
+            z-index: 1;
         }
 
         /* Navigation */
@@ -85,8 +107,9 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .logo {
@@ -150,7 +173,10 @@
         }
 
         .hero h1 .highlight {
-            color: #FFD700;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero p {
@@ -196,7 +222,10 @@
         }
 
         .section-title .highlight {
-            color: #00FFFF;
+            background: linear-gradient(135deg, #00FFFF, #00CED1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         /* Features Grid */
@@ -209,8 +238,8 @@
         }
 
         .feature-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 40px;
@@ -219,8 +248,9 @@
 
         .feature-card:hover {
             transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(0, 0, 0, 0.8);
             border-color: rgba(138, 43, 226, 0.5);
+            box-shadow: 0 20px 60px rgba(138, 43, 226, 0.3);
         }
 
         .feature-icon {
@@ -250,7 +280,7 @@
         }
 
         .module-item {
-            background: rgba(138, 43, 226, 0.1);
+            background: rgba(0, 0, 0, 0.6);
             border: 1px solid rgba(138, 43, 226, 0.3);
             border-radius: 15px;
             padding: 30px;
@@ -261,6 +291,7 @@
         .module-item:hover {
             background: rgba(138, 43, 226, 0.2);
             transform: scale(1.05);
+            border-color: rgba(138, 43, 226, 0.6);
         }
 
         .module-item h4 {
@@ -304,7 +335,7 @@
         .benefit-visual {
             flex: 1;
             height: 300px;
-            background: rgba(0, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.6);
             border: 2px solid rgba(0, 255, 255, 0.3);
             border-radius: 20px;
             display: flex;
@@ -323,8 +354,8 @@
         }
 
         .pricing-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
             border: 2px solid rgba(255, 255, 255, 0.1);
             border-radius: 25px;
             padding: 50px 40px;
@@ -334,12 +365,14 @@
 
         .pricing-card.featured {
             border-color: #FFD700;
-            background: rgba(255, 215, 0, 0.1);
+            background: rgba(0, 0, 0, 0.8);
             transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.3);
         }
 
         .pricing-card:hover {
             transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(138, 43, 226, 0.3);
         }
 
         .pricing-card.featured:hover {
@@ -355,7 +388,10 @@
             font-size: 56px;
             font-weight: 900;
             margin: 20px 0;
-            color: #FFD700;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .price-period {
@@ -387,7 +423,8 @@
         .cta-section {
             text-align: center;
             padding: 150px 60px;
-            background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(0, 191, 255, 0.2));
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
         }
 
         .cta-section h2 {
@@ -424,12 +461,14 @@
             background: transparent;
             color: #fff;
             transform: scale(1.1);
+            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.3);
         }
 
         /* Footer */
         footer {
             padding: 80px 60px 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.6);
         }
 
         .footer-content {
@@ -503,6 +542,7 @@
 
             .nav-links {
                 gap: 20px;
+                font-size: 14px;
             }
 
             section {
@@ -521,259 +561,262 @@
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
+    <!-- Animated Neon Liquid Wave Background -->
     <div class="liquid-bg">
         <div class="liquid-wave"></div>
         <div class="liquid-wave"></div>
         <div class="liquid-wave"></div>
     </div>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">SK Software Developers</div>
-        <div class="nav-links">
-            <a href="#features">Features</a>
-            <a href="#modules">Modules</a>
-            <a href="#benefits">Benefits</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#demo" class="cta-button">Request Demo</a>
-        </div>
-    </nav>
+    <!-- Content Layer -->
+    <div class="content-layer">
+        <!-- Navigation -->
+        <nav>
+            <div class="logo">SK Software Developers</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#modules">Modules</a>
+                <a href="#benefits">Benefits</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#demo" class="cta-button">Request Demo</a>
+            </div>
+        </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1 class="fade-in">
-            Transform Your <span class="highlight">Academy</span><br>
-            With SKSD ERP
-        </h1>
-        <p class="fade-in">
-            The world's most luxurious and comprehensive ERP solution designed exclusively for Police & Army Bharti Academies. Streamline operations, boost efficiency, and elevate your institution to new heights.
-        </p>
-        <a href="#demo" class="hero-cta fade-in">Experience the Future</a>
-    </section>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1 class="fade-in">
+                Transform Your <span class="highlight">Academy</span><br>
+                With SKSD ERP
+            </h1>
+            <p class="fade-in">
+                The world's most luxurious and comprehensive ERP solution designed exclusively for Police & Army Bharti Academies. Streamline operations, boost efficiency, and elevate your institution to new heights.
+            </p>
+            <a href="#demo" class="hero-cta fade-in">Experience the Future</a>
+        </section>
 
-    <!-- Features Section -->
-    <section id="features">
-        <h2 class="section-title fade-in">
-            Powerful <span class="highlight">Features</span>
-        </h2>
-        <div class="features-grid">
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🎯</div>
-                <h3>Smart Admission Management</h3>
-                <p>Streamline your entire admission process from inquiry to enrollment with automated workflows and intelligent tracking systems.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">📊</div>
-                <h3>Advanced Analytics</h3>
-                <p>Real-time dashboards and comprehensive reports provide actionable insights into every aspect of your academy's performance.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">💰</div>
-                <h3>Financial Excellence</h3>
-                <p>Complete fee management, automated billing, expense tracking, and financial reporting in one integrated system.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">👥</div>
-                <h3>Student Lifecycle Management</h3>
-                <p>Track every student's journey from admission to placement with detailed profiles, performance metrics, and progress monitoring.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">📱</div>
-                <h3>Mobile-First Design</h3>
-                <p>Access your entire academy management system from anywhere, on any device, with our responsive mobile application.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">🔒</div>
-                <h3>Enterprise Security</h3>
-                <p>Bank-grade encryption, role-based access control, and comprehensive audit trails ensure your data is always protected.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modules Section -->
-    <section id="modules">
-        <h2 class="section-title fade-in">
-            Comprehensive <span class="highlight">Modules</span>
-        </h2>
-        <div class="modules-list">
-            <div class="module-item fade-in">
-                <h4>📝 Admission Management</h4>
-            </div>
-            <div class="module-item fade-in">
-                <h4>👨‍🎓 Student Management</h4>
-            </div>
-            <div class="module-item fade-in">
-                <h4>💳 Fee Management</h4>
-            </div>
-            <div class="module-item fade-in">
-                <h4>📚 Course Management</h4>
-            </div>
-            <div class="module-item fade-in">
-                <h4>📅 Batch Scheduling</h4>
-            </div>
-            <div class="module-item fade-in">
-                <h4>👨‍🏫 Staff Management</h4>
-            </div>
-            <div class="module-item fade-in">
-                <h4>📊 Attendance Tracking</h4>
-            </div>
-            <div class="module-item fade-in">
-                <h4>📈 Performance Analytics</h4>
-            </div>
-            <div class="module-item fade-in">
-                <h4>💬 Communication Hub</h4>
-            </div>
-            <div class="module-item fade-in">
-                <h4>📄 Document Management</h4>
-            </div>
-            <div class="module-item fade-in">
-                <h4>🎯 Exam Management</h4>
-            </div>
-            <div class="module-item fade-in">
-                <h4>📱 Mobile App</h4>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section id="benefits">
-        <h2 class="section-title fade-in">
-            Built for <span class="highlight">Police & Army</span> Bharti Academies
-        </h2>
-        <div class="benefits-container">
-            <div class="benefit-row fade-in">
-                <div class="benefit-content">
-                    <h3>Physical Training Management</h3>
-                    <p>Specialized modules for tracking physical fitness tests, running records, strength assessments, and endurance metrics. Monitor student progress across all physical parameters required for police and army recruitment.</p>
+        <!-- Features Section -->
+        <section id="features">
+            <h2 class="section-title fade-in">
+                Powerful <span class="highlight">Features</span>
+            </h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Smart Admission Management</h3>
+                    <p>Streamline your entire admission process from inquiry to enrollment with automated workflows and intelligent tracking systems.</p>
                 </div>
-                <div class="benefit-visual">🏃‍♂️</div>
-            </div>
-            <div class="benefit-row fade-in">
-                <div class="benefit-content">
-                    <h3>Written Exam Preparation</h3>
-                    <p>Comprehensive test management system with question banks, mock tests, performance analytics, and personalized study plans. Track improvement across subjects like GK, Mathematics, Reasoning, and English.</p>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📊</div>
+                    <h3>Advanced Analytics</h3>
+                    <p>Real-time dashboards and comprehensive reports provide actionable insights into every aspect of your academy's performance.</p>
                 </div>
-                <div class="benefit-visual">📝</div>
-            </div>
-            <div class="benefit-row fade-in">
-                <div class="benefit-content">
-                    <h3>Medical Standards Tracking</h3>
-                    <p>Monitor height, weight, chest measurements, and other medical parameters. Automated alerts for students who need to meet specific physical standards before recruitment exams.</p>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">💰</div>
+                    <h3>Financial Excellence</h3>
+                    <p>Complete fee management, automated billing, expense tracking, and financial reporting in one integrated system.</p>
                 </div>
-                <div class="benefit-visual">⚕️</div>
-            </div>
-            <div class="benefit-row fade-in">
-                <div class="benefit-content">
-                    <h3>Placement & Success Tracking</h3>
-                    <p>Track student selections in various police and army recruitment drives. Maintain success rates, generate testimonials, and showcase your academy's achievements to attract new students.</p>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">👥</div>
+                    <h3>Student Lifecycle Management</h3>
+                    <p>Track every student's journey from admission to placement with detailed profiles, performance metrics, and progress monitoring.</p>
                 </div>
-                <div class="benefit-visual">🎖️</div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile-First Design</h3>
+                    <p>Access your entire academy management system from anywhere, on any device, with our responsive mobile application.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Enterprise Security</h3>
+                    <p>Bank-grade encryption, role-based access control, and comprehensive audit trails ensure your data is always protected.</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing">
-        <h2 class="section-title fade-in">
-            Flexible <span class="highlight">Pricing</span>
-        </h2>
-        <div class="pricing-cards">
-            <div class="pricing-card fade-in">
-                <h3>Starter</h3>
-                <div class="price">₹29,999</div>
-                <div class="price-period">per year</div>
-                <ul class="features-list">
-                    <li>Up to 200 Students</li>
-                    <li>Core Modules</li>
-                    <li>Mobile App Access</li>
-                    <li>Email Support</li>
-                    <li>Basic Reports</li>
-                    <li>Cloud Storage (10GB)</li>
-                </ul>
-                <a href="#demo" class="cta-button">Get Started</a>
+        <!-- Modules Section -->
+        <section id="modules">
+            <h2 class="section-title fade-in">
+                Comprehensive <span class="highlight">Modules</span>
+            </h2>
+            <div class="modules-list">
+                <div class="module-item fade-in">
+                    <h4>📝 Admission Management</h4>
+                </div>
+                <div class="module-item fade-in">
+                    <h4>👨‍🎓 Student Management</h4>
+                </div>
+                <div class="module-item fade-in">
+                    <h4>💳 Fee Management</h4>
+                </div>
+                <div class="module-item fade-in">
+                    <h4>📚 Course Management</h4>
+                </div>
+                <div class="module-item fade-in">
+                    <h4>📅 Batch Scheduling</h4>
+                </div>
+                <div class="module-item fade-in">
+                    <h4>👨‍🏫 Staff Management</h4>
+                </div>
+                <div class="module-item fade-in">
+                    <h4>📊 Attendance Tracking</h4>
+                </div>
+                <div class="module-item fade-in">
+                    <h4>📈 Performance Analytics</h4>
+                </div>
+                <div class="module-item fade-in">
+                    <h4>💬 Communication Hub</h4>
+                </div>
+                <div class="module-item fade-in">
+                    <h4>📄 Document Management</h4>
+                </div>
+                <div class="module-item fade-in">
+                    <h4>🎯 Exam Management</h4>
+                </div>
+                <div class="module-item fade-in">
+                    <h4>📱 Mobile App</h4>
+                </div>
             </div>
-            <div class="pricing-card featured fade-in">
-                <h3>Professional</h3>
-                <div class="price">₹59,999</div>
-                <div class="price-period">per year</div>
-                <ul class="features-list">
-                    <li>Up to 500 Students</li>
-                    <li>All Modules</li>
-                    <li>Mobile App + Web Portal</li>
-                    <li>Priority Support</li>
-                    <li>Advanced Analytics</li>
-                    <li>Cloud Storage (50GB)</li>
-                    <li>Custom Branding</li>
-                    <li>SMS Integration</li>
-                </ul>
-                <a href="#demo" class="cta-button">Most Popular</a>
-            </div>
-            <div class="pricing-card fade-in">
-                <h3>Enterprise</h3>
-                <div class="price">Custom</div>
-                <div class="price-period">contact us</div>
-                <ul class="features-list">
-                    <li>Unlimited Students</li>
-                    <li>All Modules + Custom</li>
-                    <li>Multi-Branch Support</li>
-                    <li>24/7 Dedicated Support</li>
-                    <li>AI-Powered Insights</li>
-                    <li>Unlimited Storage</li>
-                    <li>White Label Solution</li>
-                    <li>API Access</li>
-                    <li>On-Premise Option</li>
-                </ul>
-                <a href="#demo" class="cta-button">Contact Sales</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section id="demo" class="cta-section">
-        <h2 class="fade-in">Ready to Transform<br>Your Academy?</h2>
-        <p class="fade-in">Join hundreds of successful Police & Army Bharti Academies already using SKSD ERP to streamline operations and boost student success rates.</p>
-        <a href="mailto:reachsksd@gmail.com" class="cta-large fade-in">Request a Demo</a>
-    </section>
+        <!-- Benefits Section -->
+        <section id="benefits">
+            <h2 class="section-title fade-in">
+                Built for <span class="highlight">Police & Army</span> Bharti Academies
+            </h2>
+            <div class="benefits-container">
+                <div class="benefit-row fade-in">
+                    <div class="benefit-content">
+                        <h3>Physical Training Management</h3>
+                        <p>Specialized modules for tracking physical fitness tests, running records, strength assessments, and endurance metrics. Monitor student progress across all physical parameters required for police and army recruitment.</p>
+                    </div>
+                    <div class="benefit-visual">🏃‍♂️</div>
+                </div>
+                <div class="benefit-row fade-in">
+                    <div class="benefit-content">
+                        <h3>Written Exam Preparation</h3>
+                        <p>Comprehensive test management system with question banks, mock tests, performance analytics, and personalized study plans. Track improvement across subjects like GK, Mathematics, Reasoning, and English.</p>
+                    </div>
+                    <div class="benefit-visual">📝</div>
+                </div>
+                <div class="benefit-row fade-in">
+                    <div class="benefit-content">
+                        <h3>Medical Standards Tracking</h3>
+                        <p>Monitor height, weight, chest measurements, and other medical parameters. Automated alerts for students who need to meet specific physical standards before recruitment exams.</p>
+                    </div>
+                    <div class="benefit-visual">⚕️</div>
+                </div>
+                <div class="benefit-row fade-in">
+                    <div class="benefit-content">
+                        <h3>Placement & Success Tracking</h3>
+                        <p>Track student selections in various police and army recruitment drives. Maintain success rates, generate testimonials, and showcase your academy's achievements to attract new students.</p>
+                    </div>
+                    <div class="benefit-visual">🎖️</div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <h3>SKSD</h3>
-                <p>Based in Pune, India, SKSD is a premier software development company known for luxurious yet affordable digital solutions.</p>
-                <p>#SKSD #SKSoftwaredevelopers</p>
+        <!-- Pricing Section -->
+        <section id="pricing">
+            <h2 class="section-title fade-in">
+                Flexible <span class="highlight">Pricing</span>
+            </h2>
+            <div class="pricing-cards">
+                <div class="pricing-card fade-in">
+                    <h3>Starter</h3>
+                    <div class="price">₹29,999</div>
+                    <div class="price-period">per year</div>
+                    <ul class="features-list">
+                        <li>Up to 200 Students</li>
+                        <li>Core Modules</li>
+                        <li>Mobile App Access</li>
+                        <li>Email Support</li>
+                        <li>Basic Reports</li>
+                        <li>Cloud Storage (10GB)</li>
+                    </ul>
+                    <a href="#demo" class="cta-button">Get Started</a>
+                </div>
+                <div class="pricing-card featured fade-in">
+                    <h3>Professional</h3>
+                    <div class="price">₹59,999</div>
+                    <div class="price-period">per year</div>
+                    <ul class="features-list">
+                        <li>Up to 500 Students</li>
+                        <li>All Modules</li>
+                        <li>Mobile App + Web Portal</li>
+                        <li>Priority Support</li>
+                        <li>Advanced Analytics</li>
+                        <li>Cloud Storage (50GB)</li>
+                        <li>Custom Branding</li>
+                        <li>SMS Integration</li>
+                    </ul>
+                    <a href="#demo" class="cta-button">Most Popular</a>
+                </div>
+                <div class="pricing-card fade-in">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom</div>
+                    <div class="price-period">contact us</div>
+                    <ul class="features-list">
+                        <li>Unlimited Students</li>
+                        <li>All Modules + Custom</li>
+                        <li>Multi-Branch Support</li>
+                        <li>24/7 Dedicated Support</li>
+                        <li>AI-Powered Insights</li>
+                        <li>Unlimited Storage</li>
+                        <li>White Label Solution</li>
+                        <li>API Access</li>
+                        <li>On-Premise Option</li>
+                    </ul>
+                    <a href="#demo" class="cta-button">Contact Sales</a>
+                </div>
             </div>
-            <div class="footer-links">
-                <h4>Product</h4>
-                <ul>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#modules">Modules</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#demo">Request Demo</a></li>
-                </ul>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="demo" class="cta-section">
+            <h2 class="fade-in">Ready to Transform<br>Your Academy?</h2>
+            <p class="fade-in">Join hundreds of successful Police & Army Bharti Academies already using SKSD ERP to streamline operations and boost student success rates.</p>
+            <a href="mailto:reachsksd@gmail.com" class="cta-large fade-in">Request a Demo</a>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>SKSD</h3>
+                    <p>Based in Pune, India, SKSD is a premier software development company known for luxurious yet affordable digital solutions.</p>
+                    <p>#SKSD #SKSoftwaredevelopers</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#modules">Modules</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#demo">Request Demo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="https://www.sksoftwaredevelopers.com/">Home</a></li>
+                        <li><a href="https://www.sksoftwaredevelopers.com/">Our Story</a></li>
+                        <li><a href="https://www.sksoftwaredevelopers.com/">Services</a></li>
+                        <li><a href="https://www.sksoftwaredevelopers.com/">Career</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="tel:+917972269140">+91 79722 69140</a></li>
+                        <li><a href="mailto:reachsksd@gmail.com">reachsksd@gmail.com</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-links">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="https://www.sksoftwaredevelopers.com/">Home</a></li>
-                    <li><a href="https://www.sksoftwaredevelopers.com/">Our Story</a></li>
-                    <li><a href="https://www.sksoftwaredevelopers.com/">Services</a></li>
-                    <li><a href="https://www.sksoftwaredevelopers.com/">Career</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>Innovation by SK Software Developers</p>
             </div>
-            <div class="footer-links">
-                <h4>Connect</h4>
-                <ul>
-                    <li><a href="tel:+917972269140">+91 79722 69140</a></li>
-                    <li><a href="mailto:reachsksd@gmail.com">reachsksd@gmail.com</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>Innovation by SK Software Developers</p>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <script>
         // Scroll Animation
